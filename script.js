@@ -28,24 +28,39 @@ nav?.addEventListener('click',(e)=>{
 window.addEventListener('resize',()=>{ if(window.innerWidth>768) closeNav(); });
 
 /* ===== Typewriter ===== */
-const phrases=['Sicherheit ohne Kompromisse.','Diskret. Zuverlässig. Professionell.','Meisterbetrieb – Planung bis Einsatz.'];
-const twEl=document.getElementById('typewriter');
-const cursor=document.querySelector('.cursor');
-let pIndex=0,cIndex=0,deleting=false;
-function typeLoop(){
-  if(!twEl) return;
-  const cur=phrases[pIndex];
-  if(!deleting){
-    twEl.textContent=cur.slice(0,++cIndex);
-    if(cIndex===cur.length){deleting=true;setTimeout(typeLoop,1400);return;}
-  }else{
-    twEl.textContent=cur.slice(0,--cIndex);
-    if(cIndex===0){deleting=false;pIndex=(pIndex+1)%phrases.length;}
+const phrases = [
+    'PROFESSIONELL . ZUVERLÄSSIG . MEISTERHAFT',
+    'Ihr Schutz ist mein Handwerk – als IHK-geprüfter Meister.',
+    'Sicherheit aus Giengen: Persönlich, direkt und qualifiziert.'
+  ];
+  const twEl = document.getElementById('typewriter');
+  const cursor = document.querySelector('.cursor');
+  let pIndex = 0,
+    cIndex = 0,
+    deleting = false;
+  function typeLoop() {
+    if (!twEl) return;
+    const cur = phrases[pIndex];
+    if (!deleting) {
+      twEl.textContent = cur.slice(0, ++cIndex);
+      if (cIndex === cur.length) {
+        deleting = true;
+        setTimeout(typeLoop, 2000); // Etwas längere Pause nach dem Motto
+        return;
+      }
+    } else {
+      twEl.textContent = cur.slice(0, --cIndex);
+      if (cIndex === 0) {
+        deleting = false;
+        pIndex = (pIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(typeLoop, deleting ? 28 : 48);
   }
-  setTimeout(typeLoop,deleting?28:48);
-}
-typeLoop();
-if(cursor){setInterval(()=>cursor.classList.toggle('hidden'),500);}
+  typeLoop();
+  if (cursor) {
+    setInterval(() => cursor.classList.toggle('hidden'), 500);
+  }
 
 /* ===== Scroll Animations ===== */
 const observer=new IntersectionObserver((entries)=>{
@@ -54,19 +69,32 @@ const observer=new IntersectionObserver((entries)=>{
 document.querySelectorAll('.animate-on-scroll').forEach(el=>observer.observe(el));
 
 /* ===== Map Lazy Load (Consent Button) ===== */
-const loadMapBtn=document.getElementById('load-map-btn');
-const mapHolder=document.querySelector('.map-placeholder-new');
-function injectMap(){
-  if(!mapHolder||mapHolder.dataset.loaded==='true') return;
-  const iframe=document.createElement('iframe');
-  iframe.src='https://www.google.com/maps/embed?pb=...';
-  iframe.loading='lazy';
-  iframe.referrerPolicy='no-referrer-when-downgrade';
+const loadMapBtn = document.getElementById('load-map-btn');
+const mapHolder = document.querySelector('.map-placeholder-new');
+
+function injectMap() {
+  if (!mapHolder || mapHolder.dataset.loaded === 'true') return;
+
+  const iframe = document.createElement('iframe');
+
+  // --- HIER IST DER KORREKTE LINK FÜR DEINE ADRESSE ---
+  iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.587823552084!2d10.232338776856018!3d48.61899141641029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799158356f91f1b%3A0x199c922a9697f48a!2sElbeweg%208%2C%2089537%20Giengen%20an%20der%20Brenz!5e0!3m2!1sde!2sde!4v1724841668411!5m2!1sde!2sde"; 
+  
+  // Diese Attribute sorgen dafür, dass die Karte den Container ausfüllt und korrekt angezeigt wird.
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.style.border = 0;
+  iframe.allowFullscreen = true;
+  iframe.loading = 'lazy';
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  // --- ENDE ---
+
   mapHolder.appendChild(iframe);
   mapHolder.querySelector('.map-overlay-new')?.remove();
-  mapHolder.dataset.loaded='true';
+  mapHolder.dataset.loaded = 'true';
 }
-loadMapBtn?.addEventListener('click',injectMap);
+
+loadMapBtn?.addEventListener('click', injectMap);
 
 /* ===== Form Handling (Dummy) ===== */
 const form=document.getElementById('contact-form');
@@ -104,3 +132,13 @@ document.addEventListener('keydown',(e)=>{
     closeNav(); hamburger?.focus();
   }
 });
+
+/* ===== AUFKLAPPBARE LEISTUNGS-KARTEN (MOBIL) ===== */
+document.querySelectorAll('.leistungen-grid .leistungs-item').forEach(card => {
+    card.addEventListener('click', () => {
+      // Diese Funktion wird nur auf mobilen Geräten ausgeführt
+      if (window.innerWidth <= 768) {
+        card.classList.toggle('is-open');
+      }
+    });
+  });

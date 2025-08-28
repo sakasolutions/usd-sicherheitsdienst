@@ -26,7 +26,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-main);
   line-height: 1.6;
-  padding-top: var(--header-height); 
+  padding-top: var(--header-height);
 }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
@@ -38,7 +38,11 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
@@ -97,9 +101,9 @@ p, h1, h2, h3, h4, h5, h6 {
   max-width: 800px; position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
 }
-.hero h1 { 
-  font-size: clamp(2.5rem, 8vw, 3.8rem); 
-  font-weight: 600; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); 
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 3.8rem);
+  font-weight: 600; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 .hero .motto { font-size: 1.4rem; font-weight: 200; margin-bottom: 40px; height: 3rem; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); }
 .cta-buttons { display: flex; justify-content: center; gap: 20px; }
@@ -127,10 +131,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .section-title-new {
   text-align: center;
-  font-size: 3.5rem; /* GEÄNDERT: Fester Startwert */
+  font-size: 3.5rem;
   font-weight: 600; color: var(--dark-grey);
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); margin-bottom: 20px;
-  line-height: 1.2; /* Leicht erhöht für Umbrüche */
+  line-height: 1.2;
   position: relative; padding-bottom: 15px;
 }
 .section-title-new .highlight { color: var(--bordeaux); }
@@ -138,38 +142,64 @@ p, h1, h2, h3, h4, h5, h6 {
   display: block; font-size: 1.4rem; font-weight: 400; color: #666; margin-top: 25px;
   max-width: 700px; margin-left: auto; margin-right: auto;
 }
-
-/* NEU: CSS für die manuellen Umbrüche */
 .mobile-break {
   display: none;
 }
-
 .leistungen-wrapper { margin-top: 80px; }
+
+/* Hervorgehobene Karte: Bleibt ein GRID */
 .leistungs-item--featured {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-  margin-bottom: 60px; background-color: var(--white); border-radius: 10px;
-  padding: 0; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 .leistungs-item--featured .card-image-container { aspect-ratio: 4 / 3; height: 100%; border-radius: 10px 0 0 10px; }
 .leistungs-item--featured .leistungs-text { padding: 40px; }
 .leistungs-item--featured .leistungs-text h3 {
   font-size: clamp(1.5rem, 5.5vw, 2.2rem);
 }
+
 .leistungen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-.leistungs-item {
+
+.leistungen-grid .leistungs-item {
   background-color: var(--white); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease; padding: 0; overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.card-image-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+
+.card-image-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; flex-shrink: 0; }
 .card-image-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.leistungs-text { padding: 30px; }
+
+.leistungen-grid .leistungs-item .leistungs-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .leistungs-item:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); }
 .leistungs-item:hover .card-image-container img { transform: scale(1.05); }
+
 .leistungs-text h3 {
   font-size: clamp(1.3rem, 5vw, 1.8rem);
   color: var(--dark-grey);
   margin-bottom: 12px;
   font-weight: 700;
+}
+.leistungs-text p {
+  margin-bottom: 35px;
+}
+
+.leistungen-grid .leistungs-item .btn-mehr {
+  margin-top: auto;
+  align-self: flex-start;
 }
 .btn-mehr {
   display: inline-block; text-decoration: none; font-weight: 500; color: var(--white);
@@ -182,6 +212,72 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .animate-on-scroll { opacity: 0; transform: translateY(40px); }
 .animate-on-scroll.visible { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+
+
+/* ====================================================== */
+/* --- NEUE FAQ SEKTION --- */
+/* ====================================================== */
+.faq-section {
+  padding: 120px 0;
+  background-color: var(--white);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 80px auto 0;
+  display: grid;
+  gap: 20px;
+}
+
+.faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.faq-item[open] {
+  background-color: var(--white);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  cursor: pointer;
+  list-style: none; /* Entfernt den Standard-Pfeil */
+}
+
+.faq-question::-webkit-details-marker {
+  display: none; /* Entfernt den Standard-Pfeil für Chrome/Safari */
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  margin-left: 20px;
+  color: var(--bordeaux);
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 25px 25px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+
 
 /* === STIL FÜR QUALIFIKATIONEN-SEKTION === */
 .qualifikation-highlight {
@@ -202,14 +298,20 @@ p, h1, h2, h3, h4, h5, h6 {
 .qualifikation-highlight h3 { font-size: 2.2rem; color: var(--dark-grey); margin-bottom: 0; }
 .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; }
 .usp-item { text-align: center; padding: 20px; }
-.usp-item .usp-icon { margin-bottom: 20px; color: var(--bordeaux); }
+.usp-item .usp-icon {display: inline-block; margin-bottom: 20px; color: var(--bordeaux); }
 .usp-item h3 { font-size: 1.5rem; color: var(--dark-grey); margin-bottom: 10px; }
 
 /* === STIL FÜR KONTAKT-SEKTION === */
 .contact-compact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
-.contact-compact-info .section-title-new { 
-  text-align: left; 
+.contact-compact-info .section-title-new {
+  text-align: left;
   margin-bottom: 20px;
+}
+/* KORREKTUR: Regel für den Abstand an der richtigen Stelle platziert */
+.contact-compact-info p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2.5rem; /* Sorgt für den gewünschten Abstand zur Karte */
 }
 .form-group-new { margin-bottom: 1.5rem; }
 .form-group-new label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
@@ -236,11 +338,11 @@ p, h1, h2, h3, h4, h5, h6 {
 .map-placeholder-new {
     position: relative;
     width: 100%;
-    height: 243px;
+    height: 215px;
     border-radius: 10px;
     background-color: #e2e8f0;
     overflow: hidden;
-    margin-top: auto;
+    margin-top: 0; /* Zur Sicherheit zurückgesetzt */
 }
 .map-overlay-new {
     position: absolute; inset: 0; background: rgba(var(--bordeaux-rgb), 0.8); backdrop-filter: blur(4px);
@@ -308,11 +410,11 @@ p, h1, h2, h3, h4, h5, h6 {
 .social-icons-large a:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  filter: brightness(95%); 
+  filter: brightness(95%);
 }
 
 /* ====================================================== */
-/* HAUPT-FOOTER 
+/* HAUPT-FOOTER
 /* ====================================================== */
 .site-footer {
     padding-top: 4rem;
@@ -376,7 +478,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1024px) {
   .leistungen-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   .usp-grid {
@@ -394,8 +496,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 992px) {
   .leistungen-grid { grid-template-columns: 1fr; }
-  .leistungs-item--featured { grid-template-columns: 1fr; }
-  
+  .leistungs-item--featured {
+    grid-template-columns: 1fr;
+  }
+
+  /* KORREKTUR: Falsche Regel entfernt und korrekte Regel hinzugefügt */
   .contact-compact-info .section-title-new,
   .contact-compact-info p {
     text-align: center;
@@ -412,7 +517,7 @@ p, h1, h2, h3, h4, h5, h6 {
   .contact-compact-grid { grid-template-columns: 1fr; }
   .map-placeholder-new, .contact-compact-form { margin-top: 40px; }
   .usp-grid { grid-template-columns: 1fr; }
-  
+
   .usp-grid .usp-item:last-child {
       grid-column: auto;
       max-width: none;
@@ -422,11 +527,9 @@ p, h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   :root { --header-height: 80px; }
 
-  .leistungen-section, .qualifikationen-section, .contact-compact-section { 
-    padding-block: 80px; 
+  .leistungen-section, .qualifikationen-section, .contact-compact-section {
+    padding-block: 80px;
   }
-  
-  /* GEÄNDERT: Gestufte Schriftgrößen für Titel */
   .section-title-new {
     font-size: 2.5rem;
   }
@@ -453,7 +556,7 @@ p, h1, h2, h3, h4, h5, h6 {
   .main-nav ul li { margin: 25px 0; }
   .main-nav ul li a { font-size: 2rem; }
   .cta-buttons { flex-direction: column; }
-  
+
   .footer-grid {
       grid-template-columns: 1fr;
       text-align: center;
@@ -479,23 +582,84 @@ p, h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .main-nav ul li a { font-size: 1.8rem; }
-  
-  /* GEÄNDERT: Gestufte Schriftgrößen für Titel */
+
   .section-title-new {
     font-size: 2.1rem;
   }
-  
-  /* NEU: Macht die manuellen Zeilenumbrüche sichtbar */
   .mobile-break {
     display: block;
   }
-  
-  .qualifikation-highlight { 
+
+  .qualifikation-highlight {
     padding: 30px 20px;
   }
   .qualifikation-highlight h3 { font-size: 1.8rem; }
-  
+
   .leistungs-text, .leistungs-item--featured .leistungs-text {
     padding: 25px 20px;
+  }
+}
+
+
+/* ====================================================== */
+/* --- AUFKLAPPBARE KARTEN FÜR MOBILE GERÄTE --- */
+/* ====================================================== */
+@media (max-width: 768px) {
+  /* Macht die Karte klickbar (nur auf Mobilgeräten) */
+  .leistungen-grid .leistungs-item {
+    cursor: pointer;
+    overflow: hidden; /* Stellt sicher, dass nichts überläuft */
+  }
+  
+  /* Versteckt den Text und Button standardmäßig */
+  .leistungen-grid .leistungs-item .leistungs-text p,
+  .leistungen-grid .leistungs-item .leistungs-text .btn-mehr {
+    display: none;
+    max-height: 0; /* Für die Animation */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    opacity: 0;
+  }
+
+  /* Definiert eine Klasse für den "offenen" Zustand */
+  .leistungen-grid .leistungs-item.is-open .leistungs-text p,
+  .leistungen-grid .leistungs-item.is-open .leistungs-text .btn-mehr {
+    display: block; /* Zeigt Text und Button wieder an */
+    max-height: 200px; /* Genug Platz für den Text (anpassen bei längeren Texten) */
+    opacity: 1;
+    transition: max-height 0.6s ease-in, opacity 0.6s ease-in;
+  }
+
+  /* Fügt eine kleine Animation und ein "Pfeil"-Icon hinzu */
+  .leistungen-grid .leistungs-item .leistungs-text h3 {
+    position: relative;
+    padding-right: 40px; /* Platz für das Icon */
+    margin-bottom: 0; /* Entfernt den unteren Abstand, wenn der Text versteckt ist */
+    transition: margin-bottom 0.3s ease;
+  }
+
+  /* Fügt wieder den ursprünglichen margin-bottom hinzu, wenn die Karte offen ist */
+  .leistungen-grid .leistungs-item.is-open .leistungs-text h3 {
+    margin-bottom: 12px;
+  }
+
+
+  .leistungen-grid .leistungs-item .leistungs-text h3::after {
+    content: ''; /* Leerer Content, wir nutzen eine SVG */
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg); /* Startrotation */
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236C354B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  /* Dreht das Pfeil-Icon, wenn die Karte offen ist */
+  .leistungen-grid .leistungs-item.is-open .leistungs-text h3::after {
+    transform: translateY(-50%) rotate(180deg);
   }
 }
