@@ -223,11 +223,11 @@ body {
 .map-overlay-new .btn-outline:hover { background-color: var(--white); color: var(--bordeaux); }
 
 /* ====================================================== */
-/* NEU: SOCIAL MEDIA SEKTION
+/* SOCIAL MEDIA SEKTION
 /* ====================================================== */
 .social-cta-section {
     padding: clamp(3rem, 6vw, 5rem);
-    background-color: #f8f9fa; /* Heller Hintergrund als Kontrast zum dunklen Footer */
+    background-color: #f8f9fa;
     text-align: center;
     border-top: 1px solid #e2e8f0;
 }
@@ -256,11 +256,11 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 96px;  /* Größer für mehr Präsenz */
-    height: 96px;
+    width: 64px;
+    height: 64px;
     border: 2px solid #e2e8f0;
     border-radius: 50%;
-    color: #555; /* Neutrale Farbe, die zum Hover passt */
+    color: #555;
     font-size: 2rem;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -273,7 +273,6 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* Originalfarben beim Hover */
 .social-icons-large a[aria-label*="Instagram"]:hover {
     background: #E4405F;
 }
@@ -283,7 +282,7 @@ body {
 
 
 /* ====================================================== */
-/* NEUER HAUPT-FOOTER 
+/* HAUPT-FOOTER 
 /* ====================================================== */
 .site-footer {
     padding-top: 4rem;
@@ -292,7 +291,7 @@ body {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* Zurück auf ein einfaches Verhältnis */
+  grid-template-columns: 1.5fr 1fr;
   align-items: start;
   justify-content: space-between;
   gap: 2rem;
@@ -337,20 +336,9 @@ body {
 }
 .footer-bottom-inner {
   display: flex;
-  /* justify-content: space-between; <-- DIESE ZEILE ENTFERNEN ODER AUSKOMMENTIEREN */
   align-items: center;
   font-size: 0.9rem;
 }
-
-.legal-nav a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-.legal-nav a:hover {
-    color: #fff;
-}
-
 
 /* ====================================================== */
 /* --- RESPONSIVE ANPASSUNGEN --- */
@@ -358,6 +346,17 @@ body {
 @media (max-width: 992px) {
   .leistungen-grid { grid-template-columns: 1fr; }
   .leistungs-item--featured { grid-template-columns: 1fr; }
+
+  /* FIX FÜR FEATURED CARD AUF MOBILGERÄTEN */
+  .leistungs-item--featured .card-image-container {
+    height: auto; /* Stellt sicher, dass die Höhe flexibel ist und nicht die 100% vom Desktop beibehält */
+    border-radius: 10px 10px 0 0; /* Korrigiert die Rundungen für die gestapelte Ansicht */
+  }
+  .leistungs-item--featured .leistungs-text {
+    padding: 30px; /* Passt das Padding für kleinere Bildschirme an */
+  }
+  /* ENDE FIX */
+
   .contact-compact-grid { grid-template-columns: 1fr; }
   .map-placeholder-new, .contact-compact-form { margin-top: 40px; }
   .usp-grid { grid-template-columns: 1fr; }
@@ -382,7 +381,7 @@ body {
   .hero h1 { font-size: 2.5rem; }
   .cta-buttons { flex-direction: column; }
   .section-title-new { font-size: 2.5rem; }
-  .leistungen-grid { grid-template-columns: 1fr; }
+  /* leistungen-grid wird bereits von 992px abgedeckt */
   .contact-details-centered { flex-direction: column; gap: 40px; }
   
   /* Footer responsive Anpassungen */
@@ -391,14 +390,14 @@ body {
       text-align: center;
       gap: 3rem;
   }
-  .footer-col-logo { /* Angepasst für Textzentrierung */
+  .footer-col-logo {
       margin-inline: auto;
       text-align: center;
   }
-  .footer-about { /* Um auch den 'about'-Text zu zentrieren und max-width anzupassen */
+  .footer-about {
       margin-inline: auto;
       text-align: center;
-      max-width: 80%; /* Etwas breiter auf Mobil für bessere Lesbarkeit */
+      max-width: 80%;
   }
   .footer-bottom-inner {
       flex-direction: column;
