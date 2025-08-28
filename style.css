@@ -475,6 +475,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
 }
 
+.footer-bottom a {
+  background: #6C354B;      /* dein Bordeaux */
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a:hover {
+  background: #a80022;      /* etwas heller beim Hover */
+}
+
 /* ====================================================== */
 /* --- RESPONSIVE ANPASSUNGEN --- */
 /* ====================================================== */
@@ -665,3 +679,4 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-50%) rotate(180deg);
   }
 }
+

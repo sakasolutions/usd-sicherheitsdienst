@@ -12,14 +12,22 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+  <!-- Cookiebot CMP -->
+  <script id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="e6e33854-b49d-404e-a64f-a76be87eaaa3"
+    data-blockingmode="auto"
+    type="text/javascript" async>
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "USD Sicherheitsdienst",
-      "image": "https://www.usd-sicherheitsdienst.de/assets/img/logo.png",
-      "@id": "https://www.usd-sicherheitsdienst.de",
-      "url": "https://www.usd-sicherheitsdienst.de",
+      "image": "https://www.sicherheitsdienst-usd.de/assets/img/logo.png",
+      "@id": "https://www.sicherheitsdienst-usd.de.de",
+      "url": "https://www.sicherheitsdienst-usd.de",
       "telephone": "+49174 8489721",
       "priceRange": "€€",
       "address": {
@@ -31,17 +39,13 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 48.614815704195834,  "longitude": 10.222120869854118  },
+        "latitude": 48.614815704195834,
+        "longitude": 10.222120869854118
+      },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
+          "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
         ],
         "opens": "00:00",
         "closes": "23:59"
@@ -50,11 +54,10 @@
         "https://www.instagram.com/usd_sicherheitsdienst"
       ] 
     }
-    </script>
-
-
+  </script>
 </head>
 <body>
+
   <header class="main-header" role="banner">
     <div class="container">
       <a href="index.html" class="logo" aria-label="Startseite">
@@ -65,8 +68,8 @@
         <ul>
           <li><a href="#leistungen">Leistungen</a></li>
           <li><a href="#qualifikationen">Qualifikationen</a></li>
-          <li><a href="#faq">FAQ</a></li> <li><a href="#kontakt" class="nav-button">Kontakt</a></li>
-        </ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt" class="nav-button">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -88,7 +91,8 @@
           <span id="typewriter" aria-live="polite"></span><span class="cursor" aria-hidden="true">|</span>
         </p>
         <div class="cta-buttons fade-in">
-          <a href="#kontakt" class="btn btn-filled">Jetzt unverbindlich anfragen</a> <a href="tel:+49174 8489721" class="btn btn-outline" rel="nofollow">Direkt anrufen</a>
+          <a href="#kontakt" class="btn btn-filled">Jetzt unverbindlich anfragen</a>
+          <a href="tel:+49174 8489721" class="btn btn-outline" rel="nofollow">Direkt anrufen</a>
         </div>
         <div class="meister-proof">
           <p>IHK-geprüfter Meister für Schutz & Sicherheit</p>
@@ -297,105 +301,116 @@
         </div>
       </section>
 
-    <section id="kontakt" class="contact-compact-section">
+      <section id="kontakt" class="contact-compact-section">
         <div class="container">
-            <div class="contact-compact-grid">
-                <div class="contact-compact-info animate-on-scroll">
-                    <h2 class="section-title-new">
-                        Bereit für kompromisslose <span class="highlight">Sicherheit?</span>
-                    </h2>
-                    <p>Ich freue mich darauf, von Ihnen zu hören. Als Ihr <strong>Sicherheitsdienst direkt hier in Giengen</strong> berate ich Sie persönlich und unverbindlich zu Ihrem Anliegen im gesamten <strong>Landkreis Heidenheim</strong>. Ihre Anfrage ist selbstverständlich kostenlos und unverbindlich.</p>
-                    <div class="map-placeholder-new" data-cookieconsent="marketing" data-animate="fade-up">
-                        <div class="map-overlay-new">
-                            <h3>Unser Standort</h3>
-                            <p>Karte nach Zustimmung laden</p>
-                            <button id="load-map-btn" class="btn btn-outline">Laden</button>
-                        </div>
-                    </div>
+          <div class="contact-compact-grid">
+            <div class="contact-compact-info animate-on-scroll">
+              <h2 class="section-title-new">
+                Bereit für kompromisslose <span class="highlight">Sicherheit?</span>
+              </h2>
+              <p>Ich freue mich darauf, von Ihnen zu hören. Als Ihr <strong>Sicherheitsdienst direkt hier in Giengen</strong> berate ich Sie persönlich und unverbindlich zu Ihrem Anliegen im gesamten <strong>Landkreis Heidenheim</strong>. Ihre Anfrage ist selbstverständlich kostenlos und unverbindlich.</p>
+              
+              <!-- Cookiebot blockiert dieses Iframe bis Zustimmung -->
+              <div class="map-placeholder-new" data-cookieconsent="marketing" data-animate="fade-up">
+                <div class="map-overlay-new">
+                  <h3>Unser Standort</h3>
+                  <p>Karte nach Zustimmung laden</p>
                 </div>
-      
-                <div class="contact-compact-form animate-on-scroll">
-                    <form id="contact-form" class="contact-form-new">
-                        <div class="form-group-new">
-                            <label for="name">Ihr Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Max Mustermann">
-                        </div>
-                        <div class="form-group-new">
-                            <label for="email">Ihre E-Mail-Adresse</label>
-                            <input type="email" id="email" name="email" required placeholder="max.mustermann@mail.de">
-                        </div>
-                        <div class="form-group-new">
-                            <label for="service">Welche Leistung interessiert Sie?</label>
-                            <select id="service" name="service">
-                              <option value="Allgemeine Anfrage" selected>Bitte auswählen...</option>
-                              <option value="Sicherheitskonzept">Sicherheitskonzept</option>
-                              <option value="Veranstaltungsschutz">Veranstaltungsschutz</option>
-                              <option value="Objektschutz">Objektschutz</option>
-                              <option value="Revierdienst">Revier- & Alarmdienste</option>
-                              <option value="Baustellenbewachung">Baustellenbewachung</option>
-                              <option value="Sonstiges">Sonstiges</option>
-                            </select>
-                        </div>
-                        <div class="form-group-new">
-                            <label for="message">Ihre Nachricht</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
-                        </div>
-                        <div class="form-group-checkbox-new">
-                            <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                            <label for="privacy-policy">Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu.</label>
-                        </div>
-                        <button type="submit" id="submit-button" class="btn btn-filled" disabled>Anfrage senden</button>
-                        <div id="form-messages" class="form-messages-new"></div>
-                    </form>
-                </div>
+                <iframe
+                  data-cookieconsent="marketing"
+                  data-cookieblock-src="https://www.google.com/maps?q=48.614815704195834,10.222120869854118&z=14&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Google Maps – Standort"
+                  width="100%" height="174" style="border:0;">
+                </iframe>
+              </div>
             </div>
+      
+            <div class="contact-compact-form animate-on-scroll">
+              <form id="contact-form" class="contact-form-new">
+                <div class="form-group-new">
+                  <label for="name">Ihr Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                </div>
+                <div class="form-group-new">
+                  <label for="email">Ihre E-Mail-Adresse</label>
+                  <input type="email" id="email" name="email" required placeholder="max.mustermann@mail.de">
+                </div>
+                <div class="form-group-new">
+                  <label for="service">Welche Leistung interessiert Sie?</label>
+                  <select id="service" name="service">
+                    <option value="Allgemeine Anfrage" selected>Bitte auswählen...</option>
+                    <option value="Sicherheitskonzept">Sicherheitskonzept</option>
+                    <option value="Veranstaltungsschutz">Veranstaltungsschutz</option>
+                    <option value="Objektschutz">Objektschutz</option>
+                    <option value="Revierdienst">Revier- & Alarmdienste</option>
+                    <option value="Baustellenbewachung">Baustellenbewachung</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                  </select>
+                </div>
+                <div class="form-group-new">
+                  <label for="message">Ihre Nachricht</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+                </div>
+                <div class="form-group-checkbox-new">
+                  <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                  <label for="privacy-policy">Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                </div>
+                <button type="submit" id="submit-button" class="btn btn-filled" disabled>Anfrage senden</button>
+                <div id="form-messages" class="form-messages-new"></div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
-  </main>
-
-  <section class="social-cta-section">
-    <div class="container">
-      <h2 class="social-cta-title">Bleiben Sie auf dem Laufenden</h2>
-      <p class="social-cta-subtitle">Folgen Sie uns auf unseren Kanälen, um Einblicke in unsere Arbeit, aktuelle Projekte und Neuigkeiten aus der Sicherheitsbranche zu erhalten.</p>
-      <div class="social-icons-large">
-        <a href="https://www.instagram.com/usd_sicherheitsdienst" target="_blank" rel="noopener noreferrer" aria-label="Besuchen Sie uns auf Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/491748489721" target="_blank" rel="noopener noreferrer" aria-label="Kontaktieren Sie uns über WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
+    </main>
+  
+    <section class="social-cta-section">
+      <div class="container">
+        <h2 class="social-cta-title">Bleiben Sie auf dem Laufenden</h2>
+        <p class="social-cta-subtitle">Folgen Sie uns auf unseren Kanälen, um Einblicke in unsere Arbeit, aktuelle Projekte und Neuigkeiten aus der Sicherheitsbranche zu erhalten.</p>
+        <div class="social-icons-large">
+          <a href="https://www.instagram.com/usd_sicherheitsdienst" target="_blank" rel="noopener noreferrer" aria-label="Besuchen Sie uns auf Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/491748489721" target="_blank" rel="noopener noreferrer" aria-label="Kontaktieren Sie uns über WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col-logo">
-        <img src="assets/img/logo-grey.png" alt="USD Sicherheitsdienst Logo" class="footer-logo" width="180" height="80" loading="lazy">
-        <p class="footer-about">Ihr professioneller Partner für kompromisslose Sicherheit im <strong>Kreis Heidenheim, Giengen an der Brenz</strong> und Umgebung.</p>
+    </section>
+  
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col-logo">
+          <img src="assets/img/logo-grey.png" alt="USD Sicherheitsdienst Logo" class="footer-logo" width="180" height="80" loading="lazy">
+          <p class="footer-about">Ihr professioneller Partner für kompromisslose Sicherheit im <strong>Kreis Heidenheim, Giengen an der Brenz</strong> und Umgebung.</p>
+        </div>
+  
+        <div class="footer-col-nav">
+          <h3 class="footer-title">Navigation</h3>
+          <ul class="footer-nav">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#qualifikationen">Qualifikationen</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="/impressum.html">Impressum</a></li>
+            <li><a href="/datenschutz.html">Datenschutz</a></li>
+            <li><a href="/agb.html">AGB</a></li>
+          </ul>
+        </div>
       </div>
-
-      <div class="footer-col-nav">
-        <h3 class="footer-title">Navigation</h3>
-        <ul class="footer-nav">
-          <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#qualifikationen">Qualifikationen</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="/impressum.html">Impressum</a></li>
-          <li><a href="/datenschutz.html">Datenschutz</a></li>
-          <li><a href="/agb.html">AGB</a></li>
-        </ul>
+  
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>&copy; 2025 USD Sicherheitsdienst • 
+            <a href="#" onclick="Cookiebot.renew(); return false;">Cookie-Einstellungen</a>
+          </p>
+        </div>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p>&copy; 2025 USD Sicherheitsdienst</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+    </footer>
+  
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>

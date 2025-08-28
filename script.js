@@ -142,3 +142,79 @@ document.querySelectorAll('.leistungen-grid .leistungs-item').forEach(card => {
       }
     });
   });
+
+
+  /* ====================================================== */
+/* --- COOKIE CONSENT LOGIC --- */
+/* ====================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookie-consent-banner');
+    const overlay = document.getElementById('cookie-consent-overlay');
+    const acceptAllBtn = document.getElementById('cookie-accept-all');
+    const saveSelectionBtn = document.getElementById('cookie-save-selection');
+    const marketingCheckbox = document.getElementById('cookie-marketing');
+
+    const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    };
+
+    const setCookie = (name, value, days) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
+    };
+
+    const hideBanner = () => {
+        if (banner) banner.classList.add('hidden');
+        if (overlay) overlay.classList.add('hidden');
+    };
+
+    const showBanner = () => {
+        if (banner) banner.classList.remove('hidden');
+        if (overlay) overlay.classList.remove('hidden');
+    };
+
+    const handleConsent = (consent) => {
+        if (consent.marketing) {
+            // Marketing-Skripte hier initialisieren
+            initializeMap();
+        }
+    };
+
+    const saveConsent = (consent) => {
+        setCookie('usd_cookie_consent', JSON.stringify(consent), 365);
+        hideBanner();
+        handleConsent(consent);
+    };
+
+    acceptAllBtn?.addEventListener('click', () => {
+        if (marketingCheckbox) marketingCheckbox.checked = true;
+        const consent = {
+            essential: true,
+            marketing: true,
+            timestamp: new Date().toISOString()
+        };
+        saveConsent(consent);
+    });
+
+    saveSelectionBtn?.addEventListener('click', () => {
+        const consent = {
+            essential: true,
+            marketing: marketingCheckbox ? marketingCheckbox.checked : false,
+            timestamp: new Date().toISOString()
+        };
+        saveConsent(consent);
+    });
+
+    // Initial check
+    const existingConsent = getCookie('usd_cookie_consent');
+    if (existingConsent) {
+        handleConsent(JSON.parse(existingConsent));
+    } else {
+        showBanner();
+    }
+});
