@@ -42,13 +42,23 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
-p {
-  overflow-wrap: break-word;
-  hyphens: auto;
+
+/* --- Globale Textdarstellung: keine Silbentrennung --- */
+p, li {
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: break-word; /* schützt Layout bei extrem langen Wörtern/URLs */
 }
-h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+
+h1, h2, h3, h4, h5, h6,
+.section-title-new, .subtitle-new,
+.main-nav a, .btn, .btn-filled, .btn-outline,
+.footer-nav a, .faq-question, .leistungs-text h3 {
+  hyphens: none;
+  -webkit-hyphens: none;
 }
+
 
 
 /* ====================================================== */
