@@ -46,9 +46,10 @@ function setVh() {
   
   /* ===== Typewriter ===== */
   const phrases = [
+    'Professionell. Verlässlich. Meisterhaft.',
     'Sicherheit ohne Kompromisse.',
-    'Diskret. Zuverlässig. Professionell.',
-    'Meisterbetrieb – Planung bis Einsatz.'
+    
+    
   ];
   
   const twEl = document.getElementById('typewriter');

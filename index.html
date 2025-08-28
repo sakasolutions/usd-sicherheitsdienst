@@ -53,8 +53,8 @@
     <section id="leistungen" class="leistungen-section">
       <div class="container">
         <h2 class="section-title-new">
-          Unsere <span class="highlight">Serviceleistungen</span>
-          <span class="subtitle-new">Qualität, auf die Sie sich verlassen können.</span>
+            Unsere <span class="highlight">Serviceleistungen</span>
+            <span class="subtitle-new">Qualität, auf die Sie sich verlassen können.</span>
         </h2>
 
         <div class="leistungen-wrapper">
@@ -207,59 +207,59 @@
     </section>
 
     <section id="kontakt" class="contact-compact-section">
-      <div class="container">
-        <div class="contact-compact-grid">
-          <div class="contact-compact-info">
-            <h2 class="section-title-new" style="text-align: left; margin-bottom: 20px;">
-              Bereit für kompromisslose <span class="highlight">Sicherheit?</span>
-            </h2>
-            <p>Ich freue mich darauf, von Ihnen zu hören. Beschreiben Sie kurz Ihr Anliegen und ich melde mich zeitnah bei Ihnen. Ihre Anfrage ist selbstverständlich kostenlos und unverbindlich.</p>
-            <div class="map-placeholder-new" data-cookieconsent="marketing" data-animate="fade-up">
-              <div class="map-overlay-new">
-                <h3>Unser Standort</h3>
-                <p>Karte nach Zustimmung laden</p>
-                <button id="load-map-btn" class="btn btn-outline" type="button">Laden</button>
-              </div>
+        <div class="container">
+            <div class="contact-compact-grid">
+                <div class="contact-compact-info animate-on-scroll">
+                    <h2 class="section-title-new">
+                        Bereit für kompromisslose <span class="highlight">Sicherheit?</span>
+                    </h2>
+                    <p>Ich freue mich darauf, von Ihnen zu hören. Beschreiben Sie kurz Ihr Anliegen und ich melde mich zeitnah bei Ihnen. Ihre Anfrage ist selbstverständlich kostenlos und unverbindlich.</p>
+                    <div class="map-placeholder-new" data-cookieconsent="marketing" data-animate="fade-up">
+                        <div class="map-overlay-new">
+                            <h3>Unser Standort</h3>
+                            <p>Karte nach Zustimmung laden</p>
+                            <button id="load-map-btn" class="btn btn-outline">Laden</button>
+                        </div>
+                    </div>
+                </div>
+      
+                <div class="contact-compact-form animate-on-scroll">
+                    <form id="contact-form" class="contact-form-new">
+                        <div class="form-group-new">
+                            <label for="name">Ihr Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                        </div>
+                        <div class="form-group-new">
+                            <label for="email">Ihre E-Mail-Adresse</label>
+                            <input type="email" id="email" name="email" required placeholder="max.mustermann@mail.de">
+                        </div>
+                        <div class="form-group-new">
+                            <label for="service">Welche Leistung interessiert Sie?</label>
+                            <select id="service" name="service">
+                              <option value="Allgemeine Anfrage" selected>Bitte auswählen...</option>
+                              <option value="Sicherheitskonzept">Sicherheitskonzept</option>
+                              <option value="Veranstaltungsschutz">Veranstaltungsschutz</option>
+                              <option value="Objektschutz">Objektschutz</option>
+                              <option value="Revierdienst">Revier- & Alarmdienste</option>
+                              <option value="Baustellenbewachung">Baustellenbewachung</option>
+                              <option value="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        <div class="form-group-new">
+                            <label for="message">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+                        </div>
+                        <div class="form-group-checkbox-new">
+                            <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                            <label for="privacy-policy">Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                        </div>
+                        <button type="submit" id="submit-button" class="btn btn-filled" disabled>Anfrage senden</button>
+                        <div id="form-messages" class="form-messages-new"></div>
+                    </form>
+                </div>
             </div>
-          </div>
-
-          <div class="contact-compact-form">
-            <form id="contact-form" class="contact-form-new" novalidate>
-              <div class="form-group-new">
-                <label for="name">Ihr Name</label>
-                <input type="text" id="name" name="name" required placeholder="Max Mustermann" autocomplete="name">
-              </div>
-              <div class="form-group-new">
-                <label for="email">Ihre E-Mail-Adresse</label>
-                <input type="email" id="email" name="email" required placeholder="max.mustermann@mail.de" autocomplete="email" inputmode="email">
-              </div>
-              <div class="form-group-new">
-                <label for="service">Welche Leistung interessiert Sie?</label>
-                <select id="service" name="service">
-                  <option value="Allgemeine Anfrage" selected>Bitte auswählen...</option>
-                  <option value="Sicherheitskonzept">Sicherheitskonzept</option>
-                  <option value="Veranstaltungsschutz">Veranstaltungsschutz</option>
-                  <option value="Objektschutz">Objektschutz</option>
-                  <option value="Revierdienst">Revier- & Alarmdienste</option>
-                  <option value="Baustellenbewachung">Baustellenbewachung</option>
-                  <option value="Sonstiges">Sonstiges</option>
-                </select>
-              </div>
-              <div class="form-group-new">
-                <label for="message">Ihre Nachricht</label>
-                <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen..." autocomplete="off"></textarea>
-              </div>
-              <div class="form-group-checkbox-new">
-                <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                <label for="privacy-policy">Ich habe die <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme zu.</label>
-              </div>
-              <button type="submit" id="submit-button" class="btn btn-filled" disabled>Anfrage senden</button>
-              <div id="form-messages" class="form-messages-new" role="status" aria-live="polite"></div>
-            </form>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
   </main>
 
   <section class="social-cta-section">
