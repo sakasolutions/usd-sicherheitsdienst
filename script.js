@@ -30,7 +30,7 @@ window.addEventListener('resize',()=>{ if(window.innerWidth>768) closeNav(); });
 /* ===== Typewriter ===== */
 const phrases = [
     'PROFESSIONELL . ZUVERLÄSSIG . MEISTERHAFT',
-    'Ihr Schutz ist mein Handwerk – als IHK-geprüfter Meister.',
+    'Ihr Schutz ist mein Handwerk.',
     'Sicherheit aus Giengen: Persönlich, direkt und qualifiziert.'
   ];
   const twEl = document.getElementById('typewriter');

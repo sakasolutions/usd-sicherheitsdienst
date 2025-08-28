@@ -1,13 +1,17 @@
-/* --- Lokale Schriftart (Poppins) --- */
+/* --- NEUE LOKALE SCHRIFTART: LATO --- */
 @font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-Regular.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/lato-v24-latin-regular.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('assets/fonts/Poppins-Bold.woff2') format('woff2');
-  font-weight: 600; font-style: normal; font-display: swap;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/lato-v24-latin-700.woff2') format('woff2');
 }
 
 /* --- Globale Einstellungen & Variablen --- */
@@ -17,7 +21,7 @@
   --white: #ffffff;
   --dark-grey: #2d2d2d;
   --light-grey-text: #b0b0b0;
-  --font-main: 'Poppins', sans-serif;
+  --font-main: 'Lato', sans-serif; /* GEÄNDERT AUF LATO */
   --header-height: 104px;
 }
 
@@ -103,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero h1 {
   font-size: clamp(2.5rem, 8vw, 3.8rem);
-  font-weight: 600; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  font-weight: 700; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 .hero .motto { font-size: 1.4rem; font-weight: 200; margin-bottom: 40px; height: 3rem; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); }
 .cta-buttons { display: flex; justify-content: center; gap: 20px; }
@@ -132,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-title-new {
   text-align: center;
   font-size: 3.5rem;
-  font-weight: 600; color: var(--dark-grey);
+  font-weight: 700; color: var(--dark-grey); /* GEÄNDERT auf 700 */
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); margin-bottom: 20px;
   line-height: 1.2;
   position: relative; padding-bottom: 15px;
@@ -246,14 +250,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   padding: 20px 25px;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700; /* GEÄNDERT auf 700 */
   color: var(--dark-grey);
   cursor: pointer;
-  list-style: none; /* Entfernt den Standard-Pfeil */
+  list-style: none; 
 }
 
 .faq-question::-webkit-details-marker {
-  display: none; /* Entfernt den Standard-Pfeil für Chrome/Safari */
+  display: none;
 }
 
 .faq-icon {
@@ -307,14 +311,13 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   margin-bottom: 20px;
 }
-/* KORREKTUR: Regel für den Abstand an der richtigen Stelle platziert */
 .contact-compact-info p {
   font-size: 1.1rem;
   color: #555;
-  margin-bottom: 2.5rem; /* Sorgt für den gewünschten Abstand zur Karte */
+  margin-bottom: 2.5rem; 
 }
 .form-group-new { margin-bottom: 1.5rem; }
-.form-group-new label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.form-group-new label { display: block; font-weight: 700; margin-bottom: 0.5rem; } /* GEÄNDERT auf 700 */
 .form-group-new input, .form-group-new textarea, .form-group-new select {
     width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid #ddd;
     font-size: 1rem; font-family: inherit; background-color: var(--white);
@@ -342,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
     background-color: #e2e8f0;
     overflow: hidden;
-    margin-top: 0; /* Zur Sicherheit zurückgesetzt */
+    margin-top: 0;
 }
 .map-overlay-new {
     position: absolute; inset: 0; background: rgba(var(--bordeaux-rgb), 0.8); backdrop-filter: blur(4px);
@@ -369,7 +372,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .social-cta-title {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 600;
+    font-weight: 700; /* GEÄNDERT auf 700 */
     margin: 0 0 1rem;
     color: var(--dark-grey);
 }
@@ -442,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer-title {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700; /* GEÄNDERT auf 700 */
     color: #fff;
     margin: 0 0 1rem;
 }
@@ -500,7 +503,6 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
-  /* KORREKTUR: Falsche Regel entfernt und korrekte Regel hinzugefügt */
   .contact-compact-info .section-title-new,
   .contact-compact-info p {
     text-align: center;
@@ -608,14 +610,14 @@ h1, h2, h3, h4, h5, h6 {
   /* Macht die Karte klickbar (nur auf Mobilgeräten) */
   .leistungen-grid .leistungs-item {
     cursor: pointer;
-    overflow: hidden; /* Stellt sicher, dass nichts überläuft */
+    overflow: hidden; 
   }
   
   /* Versteckt den Text und Button standardmäßig */
   .leistungen-grid .leistungs-item .leistungs-text p,
   .leistungen-grid .leistungs-item .leistungs-text .btn-mehr {
     display: none;
-    max-height: 0; /* Für die Animation */
+    max-height: 0; 
     overflow: hidden;
     transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
     opacity: 0;
@@ -624,8 +626,8 @@ h1, h2, h3, h4, h5, h6 {
   /* Definiert eine Klasse für den "offenen" Zustand */
   .leistungen-grid .leistungs-item.is-open .leistungs-text p,
   .leistungen-grid .leistungs-item.is-open .leistungs-text .btn-mehr {
-    display: block; /* Zeigt Text und Button wieder an */
-    max-height: 200px; /* Genug Platz für den Text (anpassen bei längeren Texten) */
+    display: block; 
+    max-height: 200px; 
     opacity: 1;
     transition: max-height 0.6s ease-in, opacity 0.6s ease-in;
   }
@@ -633,8 +635,8 @@ h1, h2, h3, h4, h5, h6 {
   /* Fügt eine kleine Animation und ein "Pfeil"-Icon hinzu */
   .leistungen-grid .leistungs-item .leistungs-text h3 {
     position: relative;
-    padding-right: 40px; /* Platz für das Icon */
-    margin-bottom: 0; /* Entfernt den unteren Abstand, wenn der Text versteckt ist */
+    padding-right: 40px; 
+    margin-bottom: 0; 
     transition: margin-bottom 0.3s ease;
   }
 
@@ -645,11 +647,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
   .leistungen-grid .leistungs-item .leistungs-text h3::after {
-    content: ''; /* Leerer Content, wir nutzen eine SVG */
+    content: ''; 
     position: absolute;
     right: 5px;
     top: 50%;
-    transform: translateY(-50%) rotate(0deg); /* Startrotation */
+    transform: translateY(-50%) rotate(0deg); 
     width: 24px;
     height: 24px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236C354B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
