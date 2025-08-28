@@ -34,12 +34,10 @@ body {
 /* ====================================================== */
 /* --- ALLGEMEINE RESPONSIVE GRUNDLAGEN --- */
 /* ====================================================== */
-/* Verhindert, dass Bilder und Medien ihren Container sprengen */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
-/* Stellt sicher, dass Text korrekt umgebrochen wird */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
@@ -89,17 +87,16 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* --- Hero Bereich --- */
 .hero {
-  height: calc(100vh - var(--header-height)); width: 100%;
+  min-height: calc(100vh - var(--header-height)); width: 100%;
   background-image: linear-gradient(rgba(164, 164, 164, 0.65), rgba(77, 77, 77, 0.65)), url('assets/img/hero.jpg');
   background-size: cover; background-position: center; display: flex;
-  justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+  justify-content: center; align-items: center; text-align: center; padding: 40px 20px;
   position: relative; overflow: hidden; background-color: var(--dark-grey); color: var(--white);
 }
 .hero-content {
   max-width: 800px; position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
 }
-/* Schriftgröße skaliert jetzt fließend mit der Bildschirmgröße */
 .hero h1 { 
   font-size: clamp(2.5rem, 8vw, 3.8rem); 
   font-weight: 600; margin-bottom: 20px; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); 
@@ -127,16 +124,26 @@ p, h1, h2, h3, h4, h5, h6 {
 .leistungen-section, .qualifikationen-section, .contact-compact-section { padding: 120px 0; }
 .leistungen-section, .contact-compact-section { background: #f8f9fa; }
 .qualifikationen-section { background-color: var(--white); text-align: center; }
+
 .section-title-new {
-  text-align: center; font-size: 3.5rem; font-weight: 600; color: var(--dark-grey);
+  text-align: center;
+  font-size: 3.5rem; /* GEÄNDERT: Fester Startwert */
+  font-weight: 600; color: var(--dark-grey);
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); margin-bottom: 20px;
-  line-height: 1.1; position: relative; padding-bottom: 15px;
+  line-height: 1.2; /* Leicht erhöht für Umbrüche */
+  position: relative; padding-bottom: 15px;
 }
 .section-title-new .highlight { color: var(--bordeaux); }
 .subtitle-new {
   display: block; font-size: 1.4rem; font-weight: 400; color: #666; margin-top: 25px;
   max-width: 700px; margin-left: auto; margin-right: auto;
 }
+
+/* NEU: CSS für die manuellen Umbrüche */
+.mobile-break {
+  display: none;
+}
+
 .leistungen-wrapper { margin-top: 80px; }
 .leistungs-item--featured {
   display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
@@ -145,7 +152,9 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .leistungs-item--featured .card-image-container { aspect-ratio: 4 / 3; height: 100%; border-radius: 10px 0 0 10px; }
 .leistungs-item--featured .leistungs-text { padding: 40px; }
-.leistungs-item--featured .leistungs-text h3 { font-size: 2.2rem; }
+.leistungs-item--featured .leistungs-text h3 {
+  font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+}
 .leistungen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
 .leistungs-item {
   background-color: var(--white); border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -156,8 +165,12 @@ p, h1, h2, h3, h4, h5, h6 {
 .leistungs-text { padding: 30px; }
 .leistungs-item:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); }
 .leistungs-item:hover .card-image-container img { transform: scale(1.05); }
-.leistungs-text h3 { font-size: 1.8rem; color: var(--dark-grey); margin-bottom: 12px; font-weight: 700; }
-.leistungs-text p { font-size: 1.05rem; color: #555; margin-bottom: 25px; line-height: 1.6; }
+.leistungs-text h3 {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  color: var(--dark-grey);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
 .btn-mehr {
   display: inline-block; text-decoration: none; font-weight: 500; color: var(--white);
   background-color: var(--bordeaux); border: 2px solid var(--bordeaux); padding: 10px 25px;
@@ -170,7 +183,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .animate-on-scroll { opacity: 0; transform: translateY(40px); }
 .animate-on-scroll.visible { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 
-/* === STIL FÜR QUALIFIKATIONEN-SEKTION (IMMER VERTIKAL) === */
+/* === STIL FÜR QUALIFIKATIONEN-SEKTION === */
 .qualifikation-highlight {
   max-width: 800px;
   margin: 80px auto;
@@ -187,23 +200,16 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .qualifikation-highlight .icon-meister img { height: 240px; width: auto; }
 .qualifikation-highlight h3 { font-size: 2.2rem; color: var(--dark-grey); margin-bottom: 0; }
-.qualifikation-highlight p { font-size: 1.1rem; color: #555; line-height: 1.7; max-width: 650px; }
 .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; }
 .usp-item { text-align: center; padding: 20px; }
 .usp-item .usp-icon { margin-bottom: 20px; color: var(--bordeaux); }
 .usp-item h3 { font-size: 1.5rem; color: var(--dark-grey); margin-bottom: 10px; }
-.usp-item p { font-size: 1rem; color: #555; }
 
 /* === STIL FÜR KONTAKT-SEKTION === */
 .contact-compact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
 .contact-compact-info .section-title-new { 
   text-align: left; 
   margin-bottom: 20px;
-}
-.contact-compact-info p { 
-  font-size: 1.1rem; 
-  color: #555; 
-  margin-bottom: 30px;
 }
 .form-group-new { margin-bottom: 1.5rem; }
 .form-group-new label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
@@ -271,13 +277,11 @@ p, h1, h2, h3, h4, h5, h6 {
     max-width: 600px;
     margin: 0 auto 2.5rem;
 }
-/* SOCIAL MEDIA SEKTION */
 .social-icons-large {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
 }
-
 .social-icons-large a {
   display: inline-flex;
   justify-content: center;
@@ -291,25 +295,19 @@ p, h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
-/* NEU: Permanente Farben für die Icons */
 .social-icons-large a[aria-label*="Instagram"] {
   background: #E4405F;
   border-color: transparent;
   color: var(--white);
 }
-
 .social-icons-large a[aria-label*="WhatsApp"] {
   background: #25D366;
   border-color: transparent;
   color: var(--white);
 }
-/* ENDE NEU */
-
 .social-icons-large a:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  /* Optional: leichter Helligkeits-Effekt beim Hovern */
   filter: brightness(95%); 
 }
 
@@ -375,17 +373,34 @@ p, h1, h2, h3, h4, h5, h6 {
 /* ====================================================== */
 /* --- RESPONSIVE ANPASSUNGEN --- */
 /* ====================================================== */
+
+@media (max-width: 1024px) {
+  .leistungen-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  }
+  .usp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .usp-grid .usp-item:last-child {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .contact-compact-grid {
+    gap: 40px;
+  }
+}
+
 @media (max-width: 992px) {
   .leistungen-grid { grid-template-columns: 1fr; }
   .leistungs-item--featured { grid-template-columns: 1fr; }
   
-  /* NEU: Zentriert die Texte in der Kontakt-Info-Spalte auf Tablets und kleiner */
   .contact-compact-info .section-title-new,
   .contact-compact-info p {
     text-align: center;
   }
 
-  /* FIX FÜR FEATURED CARD AUF MOBILGERÄTEN */
   .leistungs-item--featured .card-image-container {
     height: auto;
     border-radius: 10px 10px 0 0;
@@ -393,19 +408,34 @@ p, h1, h2, h3, h4, h5, h6 {
   .leistungs-item--featured .leistungs-text {
     padding: 30px;
   }
-  /* ENDE FIX */
 
   .contact-compact-grid { grid-template-columns: 1fr; }
   .map-placeholder-new, .contact-compact-form { margin-top: 40px; }
   .usp-grid { grid-template-columns: 1fr; }
+  
+  .usp-grid .usp-item:last-child {
+      grid-column: auto;
+      max-width: none;
+  }
 }
 
 @media (max-width: 768px) {
   :root { --header-height: 80px; }
 
-  /* Reduziertes Padding für alle Sektionen auf mobilen Geräten */
   .leistungen-section, .qualifikationen-section, .contact-compact-section { 
     padding-block: 80px; 
+  }
+  
+  /* GEÄNDERT: Gestufte Schriftgrößen für Titel */
+  .section-title-new {
+    font-size: 2.5rem;
+  }
+
+  .hero .motto {
+    margin-bottom: 30px;
+  }
+  .meister-proof {
+    margin-top: 30px;
   }
 
   .logo img { height: 60px; }
@@ -423,10 +453,7 @@ p, h1, h2, h3, h4, h5, h6 {
   .main-nav ul li { margin: 25px 0; }
   .main-nav ul li a { font-size: 2rem; }
   .cta-buttons { flex-direction: column; }
-  .section-title-new { font-size: 2.5rem; }
-  .contact-details-centered { flex-direction: column; gap: 40px; }
   
-  /* Footer responsive Anpassungen */
   .footer-grid {
       grid-template-columns: 1fr;
       text-align: center;
@@ -451,10 +478,24 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
-  .section-title-new { font-size: 2rem; }
   .main-nav ul li a { font-size: 1.8rem; }
+  
+  /* GEÄNDERT: Gestufte Schriftgrößen für Titel */
+  .section-title-new {
+    font-size: 2.1rem;
+  }
+  
+  /* NEU: Macht die manuellen Zeilenumbrüche sichtbar */
+  .mobile-break {
+    display: block;
+  }
+  
   .qualifikation-highlight { 
     padding: 30px 20px;
   }
   .qualifikation-highlight h3 { font-size: 1.8rem; }
+  
+  .leistungs-text, .leistungs-item--featured .leistungs-text {
+    padding: 25px 20px;
+  }
 }
