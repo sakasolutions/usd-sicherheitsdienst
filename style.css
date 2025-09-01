@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6,
 /* --- Hero Bereich --- */
 .hero {
   min-height: calc(100vh - var(--header-height)); width: 100%;
-  background-image: linear-gradient(rgba(164, 164, 164, 0.65), rgba(77, 77, 77, 0.65)), url('assets/img/hero.png');
+  background-image: linear-gradient(rgba(164, 164, 164, 0.7), rgba(77, 77, 77, 0.8)), url('assets/img/hero.png');
   background-size: cover; background-position: center; display: flex;
   justify-content: center; align-items: center; text-align: center; padding: 40px 20px;
   position: relative; overflow: hidden; background-color: var(--dark-grey); color: var(--white);
@@ -431,7 +431,7 @@ h1, h2, h3, h4, h5, h6,
 /* ====================================================== */
 .site-footer {
     padding-top: 4rem;
-    background-color: var(--dark-grey);
+    background-color: #6C354B;
     color: rgba(255,255,255,0.7);
 }
 .footer-grid {
