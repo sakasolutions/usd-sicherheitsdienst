@@ -30,7 +30,7 @@ window.addEventListener('resize',()=>{ if(window.innerWidth>768) closeNav(); });
 /* ===== Typewriter ===== */
 const phrases = [
     'PROFESSIONELL . ZUVERLÄSSIG . MEISTERHAFT',
-    'Ihr Schutz ist mein Handwerk.',
+    'Sicherheit, der Sie vertrauen können.',
     'Sicherheit aus Giengen: Persönlich, direkt und qualifiziert.'
   ];
   const twEl = document.getElementById('typewriter');
