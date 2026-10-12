@@ -688,5 +688,10 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-
-
+/* Anfrage per E-Mail (statt Formular, seit 12.10.2026) */
+.contact-mail-card { background: var(--white); border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.contact-mail-card h3 { margin: 0 0 1rem; font-size: 1.6rem; }
+.contact-mail-card p { margin: 0 0 1.75rem; line-height: 1.7; }
+.contact-mail-card .btn-filled { display: block; width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center; }
+.contact-mail-card .contact-mail-hint { margin: 1rem 0 0; font-size: .9rem; opacity: .7; }
+@media (max-width: 600px) { .contact-mail-card { padding: 28px 22px; } }

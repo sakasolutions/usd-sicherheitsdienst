@@ -337,39 +337,11 @@
               </div>
             </div>
       
-            <div class="contact-compact-form animate-on-scroll">
-              <form id="contact-form" class="contact-form-new">
-                <div class="form-group-new">
-                  <label for="name">Ihr Name</label>
-                  <input type="text" id="name" name="name" required placeholder="Max Mustermann">
-                </div>
-                <div class="form-group-new">
-                  <label for="email">Ihre E-Mail-Adresse</label>
-                  <input type="email" id="email" name="email" required placeholder="max.mustermann@mail.de">
-                </div>
-                <div class="form-group-new">
-                  <label for="service">Welche Leistung interessiert Sie?</label>
-                  <select id="service" name="service">
-                    <option value="Allgemeine Anfrage" selected>Bitte auswählen...</option>
-                    <option value="Sicherheitskonzept">Sicherheitskonzept</option>
-                    <option value="Veranstaltungsschutz">Veranstaltungsschutz</option>
-                    <option value="Objektschutz">Objektschutz</option>
-                    <option value="Revierdienst">Revier- & Alarmdienste</option>
-                    <option value="Baustellenbewachung">Baustellenbewachung</option>
-                    <option value="Sonstiges">Sonstiges</option>
-                  </select>
-                </div>
-                <div class="form-group-new">
-                  <label for="message">Ihre Nachricht</label>
-                  <textarea id="message" name="message" rows="4" required placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
-                </div>
-                <div class="form-group-checkbox-new">
-                  <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                  <label for="privacy-policy">Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu.</label>
-                </div>
-                <button type="submit" id="submit-button" class="btn btn-filled" disabled>Anfrage senden</button>
-                <div id="form-messages" class="form-messages-new"></div>
-              </form>
+            <div class="contact-compact-form contact-mail-card animate-on-scroll">
+              <h3>Ihre Anfrage</h3>
+              <p>Schildern Sie uns kurz, worum es geht: gewünschte Leistung, Ort oder Objekt und Zeitraum. Wir melden uns schnellstmöglich bei Ihnen.</p>
+              <a class="btn btn-filled" href="mailto:info@sicherheitsdienst-usd.de?subject=Anfrage%20%C3%BCber%20die%20Website&body=Gew%C3%BCnschte%20Leistung%3A%0AOrt%20/%20Objekt%3A%0AZeitraum%3A%0ATelefon%20f%C3%BCr%20R%C3%BCckfragen%20%28optional%29%3A%0A%0AIhr%20Anliegen%3A%0A">Anfrage per E-Mail</a>
+              <p class="contact-mail-hint">Der Knopf öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht.</p>
             </div>
           </div>
         </div>
@@ -420,7 +392,6 @@
       </div>
     </footer>
   
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
   </body>
   </html>
